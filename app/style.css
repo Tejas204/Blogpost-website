@@ -1,0 +1,16 @@
+html, body{
+    height:100%;
+}
+
+.brandTitle{
+    color: white;
+}
+
+.list-items{
+    color: white;
+    text-decoration: none;
+    margin-top: 2%;
+    padding: 5%;
+    font-size: large;
+    list-style-type: none;
+}
