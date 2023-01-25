@@ -10,6 +10,10 @@ angular.
         console.log(response.data);
         // self.blogs = response.data;
         self.blog = response.data;
+        $http.get(`http://jsonplaceholder.typicode.com/users/${self.blog.userId}`)
+        .then((resp) => {
+          self.authorInfo = resp.data;
+        })
         
       })
       .catch(err => console.log(err));
