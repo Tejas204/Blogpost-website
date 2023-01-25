@@ -1,6 +1,12 @@
 <ul>
     <li ng-repeat="blog in $ctrl.blogs">
-          <span>{{blog.id}}</span>
-          <p>{{blog.title}}</p>
+        <div class="card" style="width: 18rem;">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+              <a href="#!/blogs/{{blog.id}}" class="btn btn-primary">
+                <h5 class="card-title">{{blog.title}}</h5>
+              </a>
+            </div>
+          </div> 
     </li>
 </ul>
