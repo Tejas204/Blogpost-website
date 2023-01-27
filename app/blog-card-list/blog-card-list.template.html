@@ -1,12 +1,26 @@
-<ul>
-    <li ng-repeat="blog in $ctrl.blogs">
-        <div class="card" style="width: 18rem;">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <a href="#!/blogs/{{blog.id}}" class="btn btn-primary">
-                <h5 class="card-title">{{blog.title}}</h5>
-              </a>
-            </div>
-          </div> 
-    </li>
-</ul>
+<div class="container">
+
+  <h2 class="text-center">Blogs</h2>
+
+  <div class="my-3 py-3">
+    <input type="text" ng-model="$ctrl.query" class="form-control"
+      placeholder="Search a blog...">
+  </div>
+
+
+  <ul>
+      <li ng-repeat="blog in $ctrl.blogs | filter:$ctrl.query" style="list-style-type: none;">
+          <div class="card" style="width: 65rem; margin: 10px;">
+              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+              <div class="card-body">
+                  <p class="text-center">{{blog.title}}</p>
+                  <div class="d-flex justify-content-center">
+                    <a href="#!/blogs/{{blog.id}}" class="btn btn-primary">
+                      <h5 class="card-title">Explore</h5>
+                    </a>
+                  </div>
+              </div>
+            </div> 
+      </li>
+  </ul>
+</div>
