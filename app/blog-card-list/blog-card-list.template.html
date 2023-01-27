@@ -1,21 +1,21 @@
 <div class="container">
 
-  <h2 class="text-center">Blogs</h2>
+  <h2 class="text-center" style="margin-top:2%">Blog<span style="color: green;">Spot</span></h2>
 
   <div class="my-3 py-3">
     <input type="text" ng-model="$ctrl.query" class="form-control"
-      placeholder="Search a blog...">
+      placeholder="Search a blog..." style="border:2px solid green">
   </div>
 
-
+<div>
   <ul>
-      <li ng-repeat="blog in $ctrl.blogs | filter:$ctrl.query" style="list-style-type: none;">
+      <li ng-repeat="blog in $ctrl.blogs | filter:$ctrl.query | startFrom : currentPage * pageSize | limitTo : pageSize" style="list-style-type: none;">
           <div class="card" style="width: 65rem; margin: 10px;">
               <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
               <div class="card-body">
                   <p class="text-center">{{blog.title}}</p>
                   <div class="d-flex justify-content-center">
-                    <a href="#!/blogs/{{blog.id}}" class="btn btn-primary">
+                    <a href="#!/blogs/{{blog.id}}" class="btn btn-success">
                       <h5 class="card-title">Explore</h5>
                     </a>
                   </div>
@@ -23,4 +23,19 @@
             </div> 
       </li>
   </ul>
+
+  <div class="text-center">
+    <button class="btn btn-outline-success" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+      Previous
+    </button>
+    {{currentPage+1}}/{{numberOfPages()}}
+    <button class="btn btn-outline-success" ng-disabled="currentPage >= $ctrl.blogs.length/pageSize - 1"
+      ng-click="currentPage=currentPage+1">
+      Next
+    </button>
+
+  </div>
+</div>
+
+
 </div>

@@ -12,6 +12,6 @@ angular.
         when('/', {
           template: '<blog-card-list></blog-card-list>'
         }).
-        otherwise('/blogs');
+        otherwise('/');
     }
   ]);
